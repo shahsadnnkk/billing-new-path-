@@ -1,0 +1,755 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Courier New';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc0">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"/&gt;
+&lt;meta name="viewport" content="width=device-width,initial-scale=1"/&gt;
+&lt;title&gt;Khaders Al Badariyya — Pro Billing (Luxury)&lt;/title&gt;
+
+&lt;!-- libs --&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Google Fonts --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"&gt;
+
+&lt;style&gt;
+:root{ --gold:#b88b1b; --dark:#0b1220; --muted:#8b8f98; --panel:#f8fafc; --bg:#0f1724; --soft:#e6e9ef; }
+*{box-sizing:border-box}
+body{ font-family:Inter,system-ui,Segoe UI,Roboto,Arial; background: radial-gradient(1200px 800px at 10% -10%, #14203a 0%, #0f1724 40%, #09101e 100%); color:var(--dark); padding:20px; }
+.container{ max-width:1200px; margin:0 auto; }
+.app{ display:grid; grid-template-columns: 280px 1fr; gap:20px; align-items:start; }
+
+/* Sidebar */
+.sidebar{ background:linear-gradient(180deg,#0b152e,#071028 40%, #050a18 100%); color:#d1d5db; border-radius:16px; padding:18px; height:calc(100vh - 40px); position:sticky; top:20px; box-shadow:0 20px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.04); }
+.brand{ font-family:'Playfair Display', serif; color:var(--gold); font-size:22px; font-weight:700; letter-spacing:.3px; text-shadow:0 0 20px rgba(184,139,27,.15); }
+.small{ color:#97a0ad; font-size:13px; }
+.menu{ margin-top:10px }
+.menu button{ width:100%; text-align:left; color:#cbd5e1; padding:10px 12px; border-radius:10px; background:transparent; border:1px solid transparent; cursor:pointer; margin-top:6px; transition:.18s ease; display:flex; align-items:center; gap:8px; font-weight:600; }
+.menu button:hover{ background:#0e1b3a; color:#fff; border-color:#1e2a51; }
+.menu button.active{ background:linear-gradient(90deg, rgba(184,139,27,.22), rgba(184,139,27,.08) 60%, transparent 100%); color:#fff; border-color:rgba(184,139,27,.35); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); }
+
+/* Main panels */
+.panel{ background:linear-gradient(180deg,#fff 0%, var(--panel) 100%); border-radius:14px; padding:18px; box-shadow:0 18px 40px rgba(2,6,23,0.30); color:var(--dark); border:1px solid #eef1f6; }
+.header-title{ font-family:'Playfair Display', serif; color:var(--dark); font-size:22px; font-weight:700; }
+
+/* Buttons &amp; inputs */
+.btn{ padding:10px 14px; border-radius:10px; border:1px solid transparent; background:linear-gradient(180deg, #d7b14c, #b88b1b); color:#111; font-weight:700; cursor:pointer; transition:.18s; box-shadow:0 8px 20px rgba(184,139,27,.25), inset 0 1px 0 rgba(255,255,255,.45); }
+.btn:hover{ filter:brightness(1.05); transform:translateY(-1px) }
+.btn-muted{ padding:8px 12px; border-radius:10px; border:1px solid #cfd6e3; background:#fff; color:#0b1220; cursor:pointer; }
+.input, select, input[type="number"], input[type="text"], input[type="datetime-local"]{ border:1px solid #d9e1ee; background:#fff; padding:10px 12px; border-radius:10px; width:100%; }
+.badge{ display:inline-block; padding:2px 8px; border-radius:8px; font-size:12px; background:#f2f4f8; border:1px solid #e7ebf3; }
+
+/* Invoice luxury look */
+.invoice-card{ position:relative; padding:28px; border-radius:12px; background:linear-gradient(180deg,#ffffff,#fafafa); box-shadow:0 8px 40px rgba(2,6,23,0.12); border:1px solid #eef1f6; overflow:hidden; }
+.logo-top-right{ position:absolute; right:28px; top:28px; width:120px; height:auto; object-fit:contain; filter:drop-shadow(0 2px 8px rgba(0,0,0,.15)); }
+.wm{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:0; }
+.wm img{ width:60%; opacity:0.05; filter:grayscale(100%); }
+.h1{ font-family:'Playfair Display', serif; font-size:28px; color:var(--dark); letter-spacing:.6px; }
+
+/* Tables */
+.table{ width:100%; border-collapse:collapse; }
+.table th, .table td{ border-bottom:1px solid var(--soft); padding:10px; }
+.table thead th{ color:#6b7280; font-weight:700; background:#f8fafc; }
+.text-right{ text-align:right }
+
+/* Totals strip */
+.totals{ background:linear-gradient(90deg,#111827,#101827); color:white; padding:12px; border-radius:10px; text-align:right; box-shadow:inset 0 1px 0 rgba(255,255,255,.08); }
+
+/* Grid utils */
+.grid{ display:grid; gap:12px }
+.grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+.grid-4{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+.mt-1{margin-top:4px}.mt-2{margin-top:8px}.mt-3{margin-top:12px}.mt-4{margin-top:16px}.mb-1{margin-bottom:4px}.mb-2{margin-bottom:8px}.mb-3{margin-bottom:12px}.mb-4{margin-bottom:16px}
+.flex{display:flex}.gap-1{gap:4px}.gap-2{gap:8px}.gap-3{gap:12px}.items-center{align-items:center}.items-start{align-items:flex-start}.justify-between{justify-content:space-between}
+.text-lg{font-size:18px}.text-xl{font-size:22px}.font-bold{font-weight:700}
+
+/* KPI card */
+.kpi{ padding:16px; border-radius:12px; background:linear-gradient(180deg,#ffffff,#f6f9ff); box-shadow:0 14px 28px rgba(2,6,23,0.2); border:1px solid #eef1f6; }
+
+/* Responsive */
+@media (max-width:980px){ .app{ grid-template-columns:1fr; } .sidebar{ position:static; height:auto; } .logo-top-right{ display:none; } .grid-3{ grid-template-columns:1fr; } .grid-4{ grid-template-columns:1fr 1fr; } }
+
+/* Print tweaks for clean invoice */
+@media print{
+  body{ background:#fff; padding:0 }
+  .sidebar, .view:not(#billing), .no-print{ display:none !important }
+  .panel{ box-shadow:none; border:none }
+  .invoice-card{ box-shadow:none; border:none; }
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="container"&gt;
+  &lt;div class="app"&gt;
+    &lt;!-- Sidebar --&gt;
+    &lt;aside class="sidebar"&gt;
+      &lt;div class="brand"&gt;Khaders Al Badariyya&lt;/div&gt;
+      &lt;div class="small mt-1 mb-4"&gt;Luxury Catering — Billing&lt;/div&gt;
+
+      &lt;div class="menu"&gt;
+        &lt;button class="active" data-view="dashboard"&gt;🏠 Dashboard&lt;/button&gt;
+        &lt;button data-view="billing"&gt;🧾 Billing / New Invoice&lt;/button&gt;
+        &lt;button data-view="products"&gt;📦 Products / Categories&lt;/button&gt;
+        &lt;button data-view="customers"&gt;👥 Customers&lt;/button&gt;
+        &lt;button data-view="bills"&gt;📜 Bills / Records&lt;/button&gt;
+        &lt;button data-view="reports"&gt;📊 Reports&lt;/button&gt;
+        &lt;button data-view="settings"&gt;⚙️ Settings&lt;/button&gt;
+        &lt;button data-view="help"&gt;❓ Help&lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;div class="mt-6 small"&gt;
+        &lt;div&gt;Local storage mode&lt;/div&gt;
+        &lt;div class="mt-2"&gt;Export DB to move to server later&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/aside&gt;
+
+    &lt;!-- Main --&gt;
+    &lt;main&gt;
+      &lt;!-- Dashboard --&gt;
+      &lt;section id="dashboard" class="panel view"&gt;
+        &lt;div class="flex justify-between items-start"&gt;
+          &lt;div&gt;
+            &lt;div class="header-title"&gt;Dashboard&lt;/div&gt;
+            &lt;div class="small"&gt;Overview &amp; quick actions&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="text-right"&gt;
+            &lt;div class="small"&gt;Local&lt;/div&gt;
+            &lt;div id="statCount" class="font-bold text-lg"&gt;0 bills&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="mt-4 grid grid-3 gap-4"&gt;
+          &lt;div class="kpi"&gt;
+            &lt;div class="small"&gt;Total Sales&lt;/div&gt;
+            &lt;div id="statSales" class="text-2xl font-bold"&gt;₹0.00&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="kpi"&gt;
+            &lt;div class="small"&gt;Products&lt;/div&gt;
+            &lt;div id="statProducts" class="text-2xl font-bold"&gt;0&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="kpi"&gt;
+            &lt;div class="small"&gt;Customers&lt;/div&gt;
+            &lt;div id="statCustomers" class="text-2xl font-bold"&gt;0&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="mt-4 panel"&gt;
+          &lt;div class="small mb-2"&gt;Recent invoices&lt;/div&gt;
+          &lt;div id="recentList" class="small"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Billing --&gt;
+      &lt;section id="billing" class="panel view" style="display:none;"&gt;
+        &lt;div class="invoice-card" id="invoiceCard"&gt;
+          &lt;!-- precise logo on top-right --&gt;
+          &lt;img id="logoImg" class="logo-top-right" src="" alt="logo" style="display:none"/&gt;
+
+          &lt;div class="wm" id="wm"&gt;&lt;/div&gt;
+
+          &lt;div class="flex justify-between items-start mb-4"&gt;
+            &lt;div&gt;
+              &lt;div class="h1" id="brandTitle"&gt;Khaders Al Badariyya Catering Service&lt;/div&gt;
+              &lt;div class="small" id="brandTag"&gt;Luxury Catering · Malappuram&lt;/div&gt;
+              &lt;div class="small" id="brandPhone"&gt;Ph: +91 8606221010&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class="text-right"&gt;
+              &lt;div class="small"&gt;Invoice #&lt;/div&gt;
+              &lt;input id="inv_no" class="input w-48 mb-2" placeholder="auto"&gt;
+              &lt;div class="small"&gt;Date&lt;/div&gt;
+              &lt;input type="datetime-local" id="inv_date" class="input w-48"&gt;
+              &lt;div class="mt-2"&gt;
+                &lt;label class="small"&gt;Upload Logo&lt;/label&gt;
+                &lt;input type="file" id="logoInput" accept="image/*" class="block mt-1"&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="grid md:grid-cols-3 gap-3 mb-3"&gt;
+            &lt;div&gt;
+              &lt;div class="small"&gt;Customer&lt;/div&gt;
+              &lt;select id="selCustomer" class="input"&gt;&lt;/select&gt;
+              &lt;div class="mt-2 small"&gt;Phone&lt;/div&gt;
+              &lt;input id="custPhone" class="input" placeholder="Customer phone"&gt;
+              &lt;div class="mt-2 small"&gt;Address&lt;/div&gt;
+              &lt;input id="custAddr" class="input" placeholder="Customer address"&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;div class="small"&gt;Category Filter&lt;/div&gt;
+              &lt;select id="categoryFilter" class="input"&gt;&lt;option value=""&gt;-- All Categories --&lt;/option&gt;&lt;/select&gt;
+
+              &lt;div class="small mt-2"&gt;Add product&lt;/div&gt;
+              &lt;div class="flex gap-2 mt-1"&gt;
+                &lt;select id="selProduct" class="input" style="flex:1"&gt;&lt;/select&gt;
+                &lt;input id="add_qty" type="number" step="0.01" value="1" class="input" style="width:90px"&gt;
+                &lt;button id="btnAdd" class="btn"&gt;Add&lt;/button&gt;
+              &lt;/div&gt;
+              &lt;div id="stockHint" class="small mt-2" style="color:#b91c1c"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div&gt;
+              &lt;div class="small"&gt;Actions&lt;/div&gt;
+              &lt;div class="flex gap-2 mt-1"&gt;
+                &lt;button id="saveBill" class="btn"&gt;Save Invoice&lt;/button&gt;
+                &lt;button id="downloadA3" class="btn-muted"&gt;Download A3 PDF&lt;/button&gt;
+                &lt;button id="printBill" class="btn-muted"&gt;Print&lt;/button&gt;
+                &lt;button id="clearBill" class="btn-muted"&gt;Clear&lt;/button&gt;
+              &lt;/div&gt;
+              &lt;div class="small mt-2"&gt;Free delivery up to &lt;input id="freeKg" type="number" class="input" style="width:70px; display:inline-block" value="5"&gt; kg&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;div class="mb-4" style="overflow-x:auto"&gt;
+            &lt;table class="table"&gt;
+              &lt;thead&gt;
+                &lt;tr&gt;
+                  &lt;th class="small"&gt;#&lt;/th&gt;
+                  &lt;th class="small"&gt;Description&lt;/th&gt;
+                  &lt;th class="small"&gt;Qty&lt;/th&gt;
+                  &lt;th class="small"&gt;Rate&lt;/th&gt;
+                  &lt;th class="small text-right"&gt;Amount&lt;/th&gt;
+                  &lt;th class="small"&gt;Action&lt;/th&gt;
+                &lt;/tr&gt;
+              &lt;/thead&gt;
+              &lt;tbody id="invItems"&gt;&lt;/tbody&gt;
+              &lt;tfoot&gt;
+                &lt;tr&gt;&lt;td colspan="4" class="text-right small"&gt;Subtotal&lt;/td&gt;&lt;td id="subtotal" class="text-right font-bold"&gt;₹0.00&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td colspan="4" class="text-right small"&gt;Tax&lt;/td&gt;&lt;td class="text-right"&gt;&lt;select id="selTax" class="input" style="width:140px"&gt;&lt;/select&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td colspan="4" class="text-right small"&gt;Discount (₹)&lt;/td&gt;&lt;td class="text-right"&gt;&lt;input id="billDiscount" type="number" step="0.01" value="0" class="input" style="width:140px"&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td colspan="4" class="text-right small"&gt;Delivery Fee&lt;/td&gt;&lt;td id="deliveryFee" class="text-right"&gt;₹0.00&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td colspan="4" class="text-right font-bold"&gt;Grand Total&lt;/td&gt;&lt;td id="grandtotal" class="text-right font-bold text-xl"&gt;₹0.00&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+              &lt;/tfoot&gt;
+            &lt;/table&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Products --&gt;
+      &lt;section id="products" class="panel view" style="display:none;"&gt;
+        &lt;div class="flex justify-between items-center mb-3"&gt;
+          &lt;div&gt;&lt;div class="header-title"&gt;Products &amp; Categories&lt;/div&gt;&lt;div class="small"&gt;Add product with stock level &amp; category&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="small"&gt;Stock updates when invoice saved&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="grid grid-4 mb-3"&gt;
+          &lt;input id="p_name" placeholder="Product name" class="input" /&gt;
+          &lt;input id="p_cat" placeholder="Category" class="input" /&gt;
+          &lt;input id="p_stock" placeholder="Stock" type="number" class="input" /&gt;
+          &lt;input id="p_rate" placeholder="Rate ₹" type="number" class="input" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="flex gap-2 mb-3"&gt;
+          &lt;button id="p_add" class="btn"&gt;Add / Update&lt;/button&gt;
+          &lt;button id="p_clear" class="btn-muted no-print"&gt;Clear All&lt;/button&gt;
+          &lt;input id="p_search" placeholder="Search products" class="input" style="flex:1" /&gt;
+        &lt;/div&gt;
+
+        &lt;div id="p_list" class="space-y-1" style="max-height:260px; overflow:auto"&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Customers --&gt;
+      &lt;section id="customers" class="panel view" style="display:none;"&gt;
+        &lt;div class="flex justify-between items-center mb-3"&gt;
+          &lt;div&gt;&lt;div class="header-title"&gt;Customers&lt;/div&gt;&lt;div class="small"&gt;Add &amp; autofill while billing&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="small"&gt;Use dropdown in Billing to autofill&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="grid grid-3 mb-3"&gt;
+          &lt;input id="c_name" placeholder="Name" class="input" /&gt;
+          &lt;input id="c_phone" placeholder="Phone" class="input" /&gt;
+          &lt;input id="c_addr" placeholder="Address" class="input" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="flex gap-2 mb-3"&gt;
+          &lt;button id="c_add" class="btn"&gt;Add / Update&lt;/button&gt;
+          &lt;button id="c_clear" class="btn-muted no-print"&gt;Clear All&lt;/button&gt;
+          &lt;input id="c_search" placeholder="Search customers" class="input" style="flex:1" /&gt;
+        &lt;/div&gt;
+
+        &lt;div id="c_list" style="max-height:260px; overflow:auto"&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Bills --&gt;
+      &lt;section id="bills" class="panel view" style="display:none;"&gt;
+        &lt;div class="flex justify-between items-center mb-3"&gt;
+          &lt;div&gt;&lt;div class="header-title"&gt;Bills&lt;/div&gt;&lt;div class="small"&gt;View / Print / Export&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="small"&gt;Search or export DB&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="mb-3"&gt;
+          &lt;input id="b_search" placeholder="Search invoice or item" class="input" style="width:240px" /&gt;
+          &lt;button id="exportAll" class="btn-muted no-print" style="margin-left:8px"&gt;Export DB&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div id="b_history" style="max-height:300px; overflow:auto"&gt;&lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Reports --&gt;
+      &lt;section id="reports" class="panel view" style="display:none;"&gt;
+        &lt;div class="header-title mb-2"&gt;Reports&lt;/div&gt;
+        &lt;div class="grid grid-3"&gt;
+          &lt;div class="kpi"&gt;&lt;div class="small"&gt;Daily Sales&lt;/div&gt;&lt;div id="repDaily" class="text-xl font-bold mt-1"&gt;₹0.00&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="kpi"&gt;&lt;div class="small"&gt;Monthly Sales&lt;/div&gt;&lt;div id="repMonthly" class="text-xl font-bold mt-1"&gt;₹0.00&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="kpi"&gt;&lt;div class="small"&gt;Invoice Count&lt;/div&gt;&lt;div id="repCount" class="text-xl font-bold mt-1"&gt;0&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Settings --&gt;
+      &lt;section id="settings" class="panel view" style="display:none;"&gt;
+        &lt;div class="header-title"&gt;Settings&lt;/div&gt;
+        &lt;div class="grid grid-3 mt-3"&gt;
+          &lt;div&gt;
+            &lt;label class="small"&gt;Business name&lt;/label&gt;
+            &lt;input id="set_bname" class="input" value="Khaders Al Badariyya Catering Service"&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;label class="small"&gt;Phone&lt;/label&gt;
+            &lt;input id="set_phone" class="input" value="+91 8606221010"&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;label class="small"&gt;Default Delivery Fee (₹)&lt;/label&gt;
+            &lt;input id="set_delivery" class="input" type="number" value="50"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="mt-3"&gt;
+          &lt;button id="saveSettings" class="btn"&gt;Save Settings&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class="mt-3"&gt;
+          &lt;div class="header-title" style="font-size:18px"&gt;Tax Presets&lt;/div&gt;
+          &lt;div class="small"&gt;Choose during billing&lt;/div&gt;
+          &lt;div id="taxList" class="mt-1 small"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+
+      &lt;!-- Help --&gt;
+      &lt;section id="help" class="panel view" style="display:none;"&gt;
+        &lt;div class="header-title"&gt;Help &amp; Quick Guide&lt;/div&gt;
+        &lt;ul class="mt-2 small" style="padding-left:18px; list-style:disc"&gt;
+          &lt;li&gt;Add categories &amp; products under Products&lt;/li&gt;
+          &lt;li&gt;Add customers — then in Billing choose a customer to autofill phone/address&lt;/li&gt;
+          &lt;li&gt;When saving a bill, product stock reduces automatically&lt;/li&gt;
+          &lt;li&gt;Use Download A3 to get a luxury-styled A3 invoice&lt;/li&gt;
+          &lt;li&gt;Ctrl/Cmd + N to start a fresh invoice&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/section&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+/* ----------------------- Storage keys &amp; helpers ----------------------- */
+const PRODUCTS_KEY = 'kab_products_v5';
+const CUSTOMERS_KEY = 'kab_customers_v5';
+const BILLS_KEY = 'kab_bills_v7';
+const TAX_KEY = 'kab_tax_v5';
+const SETTINGS_KEY = 'kab_settings_v5';
+const LOGO_KEY = 'kab_logo_v5';
+
+const $ = s =&gt; document.querySelector(s);
+const $$ = s =&gt; Array.from(document.querySelectorAll(s));
+const fmt = n =&gt; (Number(n)||0).toFixed(2);
+const uid = ()=&gt; (crypto &amp;&amp; crypto.randomUUID)? crypto.randomUUID() : 'id'+Math.random().toString(36).slice(2,9);
+
+function load(key, def=[]){ try{ return JSON.parse(localStorage.getItem(key) || JSON.stringify(def)); }catch(e){ return def; } }
+function save(key, val){ localStorage.setItem(key, JSON.stringify(val)); }
+function esc(s){ return String(s||'').replace(/[&amp;&lt;&gt;"']/g, c=&gt;({'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#39;'}[c])); }
+
+/* -------------------- App state -------------------- */
+let invoiceItems = [];
+let currentLogo = localStorage.getItem(LOGO_KEY) || '';
+let settings = load(SETTINGS_KEY, { bname:'Khaders Al Badariyya Catering Service', phone:'+91 8606221010', freeKg:5, deliveryFee:50 });
+
+/* Seed default tax presets on first run */
+(function seedTax(){
+  const cur = load(TAX_KEY, null);
+  if(!cur || !Array.isArray(cur) || cur.length===0){
+    const presets = [
+      {id:uid(), name:'GST 5%', pct:5},
+      {id:uid(), name:'GST 12%', pct:12},
+      {id:uid(), name:'GST 18%', pct:18}
+    ];
+    save(TAX_KEY, presets);
+  }
+})();
+
+/* -------------------- Menu views -------------------- */
+$$('.menu button').forEach(btn=&gt;{
+  btn.addEventListener('click', ()=&gt;{
+    $$('.menu button').forEach(b=&gt;b.classList.remove('active'));
+    btn.classList.add('active');
+    const view = btn.dataset.view;
+    $$('.view').forEach(v=&gt; v.style.display = 'none');
+    document.getElementById(view).style.display = 'block';
+    if(view==='dashboard') renderDashboard();
+    if(view==='products') renderProducts();
+    if(view==='customers') renderCustomers();
+    if(view==='bills') renderBills();
+    if(view==='reports') renderReports();
+    if(view==='settings') renderSettingsPanel();
+  });
+});
+
+/* -------------------- Initial UI load -------------------- */
+function init(){
+  loadSettingsToUI();
+  renderProducts();
+  renderCustomers();
+  renderTaxes();
+  renderInvItems();
+  renderBills();
+  renderDashboard();
+  renderReports();
+  renderSettingsPanel();
+  applyLogoToWM(currentLogo);
+}
+init();
+
+/* -------------------- Settings -------------------- */
+function loadSettingsToUI(){
+  $('#set_bname').value = settings.bname;
+  $('#set_phone').value = settings.phone;
+  $('#set_delivery').value = settings.deliveryFee ?? 50;
+  $('#brandTitle').textContent = settings.bname;
+  $('#brandPhone').textContent = 'Ph: ' + (settings.phone||'');
+  $('#freeKg').value = settings.freeKg ?? 5;
+}
+function renderSettingsPanel(){
+  const taxes = load(TAX_KEY,[]);
+  $('#taxList').innerHTML = taxes.map(t =&gt; `&lt;span class="badge" style="margin-right:6px"&gt;${esc(t.name)} (${fmt(t.pct).replace('.00','')}%)&lt;/span&gt;`).join('') || '&lt;span class="small"&gt;No tax presets.&lt;/span&gt;';
+}
+$('#saveSettings').addEventListener('click', ()=&gt;{
+  settings.bname = $('#set_bname').value.trim();
+  settings.phone = $('#set_phone').value.trim();
+  settings.deliveryFee = Number($('#set_delivery').value)||0;
+  settings.freeKg = Number($('#freeKg').value) || (settings.freeKg ?? 5);
+  save(SETTINGS_KEY, settings);
+  loadSettingsToUI();
+  alert('Settings saved');
+});
+
+/* -------------------- Logo upload / watermark -------------------- */
+$('#logoInput').addEventListener('change', e=&gt;{
+  const f = e.target.files &amp;&amp; e.target.files[0];
+  if(!f) return;
+  const r = new FileReader();
+  r.onload = ev =&gt; {
+    currentLogo = ev.target.result;
+    localStorage.setItem(LOGO_KEY, currentLogo);
+    applyLogoToWM(currentLogo);
+  };
+  r.readAsDataURL(f);
+});
+function applyLogoToWM(src){
+  $('#wm').innerHTML = src ? `&lt;img src="${src}" alt="wm"&gt;` : '';
+  if(src){ $('#logoImg').src = src; $('#logoImg').style.display = ''; } else { $('#logoImg').style.display = 'none'; }
+}
+
+/* -------------------- Products (with category+stock) -------------------- */
+function renderProducts(filter=''){
+  const arr = load(PRODUCTS_KEY,[]);
+  $('#p_list').innerHTML = '';
+  // fill category filter
+  const cats = [...new Set(arr.map(p =&gt; p.category || '').filter(Boolean))];
+  $('#categoryFilter').innerHTML = '&lt;option value=""&gt;-- All Categories --&lt;/option&gt;';
+  cats.forEach(c=&gt; $('#categoryFilter').appendChild(new Option(c,c)));
+  // fill product select
+  $('#selProduct').innerHTML = '&lt;option value=""&gt;-- select product --&lt;/option&gt;';
+  arr.filter(p =&gt; !filter || p.name.toLowerCase().includes(filter.toLowerCase())).forEach(p=&gt;{
+    const div = document.createElement('div'); div.className = 'flex items-center justify-between'; div.style.cssText='padding:10px; border-bottom:1px solid #eef1f6';
+    div.innerHTML = `&lt;div&gt;&lt;strong&gt;${esc(p.name)}&lt;/strong&gt;&lt;div class="small"&gt;${esc(p.category||'')} · Stock: ${Number(p.stock||0)} · ₹${fmt(p.rate)}&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="flex gap-1"&gt;
+        &lt;button data-id="${p.id}" class="btn-muted p_edit"&gt;Edit&lt;/button&gt;
+        &lt;button data-id="${p.id}" class="btn-muted p_del"&gt;Del&lt;/button&gt;
+      &lt;/div&gt;`;
+    $('#p_list').appendChild(div);
+  });
+  // fill select options (all)
+  load(PRODUCTS_KEY,[]).forEach(p =&gt; {
+    const opt = document.createElement('option'); opt.value = p.id; opt.textContent = `${p.name} — ₹${fmt(p.rate)} (Stock ${p.stock||0})`;
+    $('#selProduct').appendChild(opt);
+  });
+  $$('.p_edit').forEach(b=&gt; b.onclick = e =&gt; editProduct(e.target.dataset.id));
+  $$('.p_del').forEach(b=&gt; b.onclick = e =&gt; { if(!confirm('Delete product?')) return; deleteProduct(e.target.dataset.id); });
+  $('#statProducts').textContent = load(PRODUCTS_KEY,[]).length;
+}
+$('#p_add').addEventListener('click', ()=&gt;{
+  const name = $('#p_name').value.trim(); if(!name) return alert('Name required');
+  const category = $('#p_cat').value.trim();
+  const stock = Number($('#p_stock').value) || 0;
+  const rate = Number($('#p_rate').value) || 0;
+  const arr = load(PRODUCTS_KEY,[]);
+  const existing = arr.find(x =&gt; x.name.toLowerCase() === name.toLowerCase());
+  if(existing){ existing.category = category; existing.stock = stock; existing.rate = rate; } else { arr.push({ id: uid(), name, category, stock, rate }); }
+  save(PRODUCTS_KEY, arr);
+  $('#p_name').value=''; $('#p_cat').value=''; $('#p_stock').value=''; $('#p_rate').value='';
+  renderProducts($('#p_search').value);
+});
+$('#p_clear').addEventListener('click', ()=&gt; { if(!confirm('Clear all products?')) return; save(PRODUCTS_KEY,[]); renderProducts(); });
+$('#p_search').addEventListener('input', e=&gt; renderProducts(e.target.value));
+$('#categoryFilter').addEventListener('change', ()=&gt; renderProducts($('#p_search').value));
+
+function editProduct(id){ const arr = load(PRODUCTS_KEY,[]); const p = arr.find(x=&gt; x.id===id); if(!p) return; $('#p_name').value=p.name; $('#p_cat').value=p.category; $('#p_stock').value=p.stock; $('#p_rate').value=p.rate; }
+function deleteProduct(id){ let arr = load(PRODUCTS_KEY,[]); arr = arr.filter(x=&gt; x.id!==id); save(PRODUCTS_KEY, arr); renderProducts(); }
+
+/* -------------------- Customers (autofill) -------------------- */
+function renderCustomers(filter=''){
+  const list = load(CUSTOMERS_KEY,[]);
+  $('#c_list').innerHTML = '';
+  $('#selCustomer').innerHTML = '&lt;option value=""&gt;Walk-in&lt;/option&gt;';
+  list.filter(c =&gt; !filter || c.name.toLowerCase().includes(filter.toLowerCase())).forEach(c=&gt;{
+    const div = document.createElement('div'); div.className='flex items-center justify-between'; div.style.cssText='padding:10px; border-bottom:1px solid #eef1f6';
+    div.innerHTML = `&lt;div&gt;&lt;strong&gt;${esc(c.name)}&lt;/strong&gt;&lt;div class="small"&gt;${esc(c.phone)} · ${esc(c.address||'')}&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="flex gap-1"&gt;&lt;button data-id="${c.id}" class="btn-muted c_edit"&gt;Edit&lt;/button&gt;&lt;button data-id="${c.id}" class="btn-muted c_del"&gt;Del&lt;/button&gt;&lt;/div&gt;`;
+    $('#c_list').appendChild(div);
+  });
+  list.forEach(c =&gt; { const opt = document.createElement('option'); opt.value = c.id; opt.textContent = `${c.name}${c.phone?(' • '+c.phone):''}`; $('#selCustomer').appendChild(opt); });
+  $$('.c_edit').forEach(b=&gt; b.onclick = e =&gt; editCustomer(e.target.dataset.id));
+  $$('.c_del').forEach(b=&gt; b.onclick = e =&gt; { if(!confirm('Delete customer?')) return; deleteCustomer(e.target.dataset.id); });
+  $('#statCustomers').textContent = list.length;
+}
+$('#c_add').addEventListener('click', ()=&gt;{
+  const name = $('#c_name').value.trim(); if(!name) return alert('Name required');
+  const phone = $('#c_phone').value.trim(); const addr = $('#c_addr').value.trim();
+  const arr = load(CUSTOMERS_KEY,[]); const existing = arr.find(c =&gt; c.name.toLowerCase()===name.toLowerCase() &amp;&amp; c.phone===phone);
+  if(existing){ existing.address = addr; } else { arr.push({ id: uid(), name, phone, address: addr }); }
+  save(CUSTOMERS_KEY, arr); $('#c_name').value=''; $('#c_phone').value=''; $('#c_addr').value=''; renderCustomers($('#c_search').value);
+});
+$('#c_clear').addEventListener('click', ()=&gt; { if(!confirm('Clear all customers?')) return; save(CUSTOMERS_KEY,[]); renderCustomers(); });
+$('#c_search').addEventListener('input', e=&gt; renderCustomers(e.target.value));
+function editCustomer(id){ const arr = load(CUSTOMERS_KEY,[]); const c = arr.find(x=&gt; x.id===id); if(!c) return; $('#c_name').value=c.name; $('#c_phone').value=c.phone; $('#c_addr').value=c.address; }
+function deleteCustomer(id){ let arr = load(CUSTOMERS_KEY,[]); arr = arr.filter(x=&gt; x.id!==id); save(CUSTOMERS_KEY,arr); renderCustomers(); }
+
+/* Autofill phone/address when customer selected */
+$('#selCustomer').addEventListener('change', ()=&gt;{
+  const id = $('#selCustomer').value;
+  if(!id){ $('#custPhone').value=''; $('#custAddr').value=''; return; }
+  const c = load(CUSTOMERS_KEY,[]).find(x=&gt; x.id===id);
+  if(c){ $('#custPhone').value = c.phone || ''; $('#custAddr').value = c.address || ''; }
+});
+
+/* -------------------- Tax presets -------------------- */
+function renderTaxes(){
+  const arr = load(TAX_KEY,[]);
+  $('#selTax').innerHTML = '&lt;option value="none"&gt;-- None --&lt;/option&gt;';
+  arr.forEach(t=&gt; { const opt=document.createElement('option'); opt.value=t.id; opt.textContent=`${t.name} (${t.pct}%)`; $('#selTax').appendChild(opt); });
+}
+renderTaxes();
+
+/* -------------------- Invoice composition &amp; stock checks -------------------- */
+function addItemToInvoice(prodId, qty){
+  const prod = load(PRODUCTS_KEY,[]).find(p=&gt; p.id===prodId); if(!prod) return alert('Select product');
+  qty = Number(qty)||0; if(qty&lt;=0) return alert('Quantity must be &gt; 0');
+  if(prod.stock !== undefined &amp;&amp; prod.stock !== null){
+    if(qty &gt; prod.stock){ $('#stockHint').textContent = `Not enough stock (available ${prod.stock})`; return; }
+    else $('#stockHint').textContent = '';
+  }
+  const existing = invoiceItems.find(i=&gt; i.id===prodId);
+  if(existing){ existing.qty += qty; existing.amount = existing.qty * existing.rate; }
+  else { invoiceItems.push({ id:prodId, name:prod.name, qty, rate:prod.rate, amount: qty*prod.rate }); }
+  renderInvItems();
+}
+$('#btnAdd').addEventListener('click', ()=&gt; addItemToInvoice($('#selProduct').value, $('#add_qty').value));
+
+function renderInvItems(){
+  const tb = $('#invItems'); tb.innerHTML='';
+  invoiceItems.forEach((it, idx)=&gt;{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      &lt;td class="p-2"&gt;${idx+1}&lt;/td&gt;
+      &lt;td class="p-2"&gt;${esc(it.name)}&lt;/td&gt;
+      &lt;td class="p-2"&gt;&lt;input data-idx="${idx}" class="input qty" style="width:90px" value="${it.qty}"&gt;&lt;/td&gt;
+      &lt;td class="p-2"&gt;₹${fmt(it.rate)}&lt;/td&gt;
+      &lt;td class="p-2 text-right"&gt;₹${fmt(it.amount)}&lt;/td&gt;
+      &lt;td class="p-2"&gt;&lt;button data-idx="${idx}" class="btn-muted rm"&gt;Del&lt;/button&gt;&lt;/td&gt;`;
+    tb.appendChild(tr);
+  });
+  $$('.qty').forEach(inp =&gt; inp.oninput = e =&gt; {
+    const i=Number(e.target.dataset.idx); const v=Number(e.target.value)||0;
+    invoiceItems[i].qty=v; invoiceItems[i].amount = v * invoiceItems[i].rate; renderInvItems();
+  });
+  $$('.rm').forEach(b =&gt; b.onclick = e =&gt; { const i = Number(e.target.dataset.idx); invoiceItems.splice(i,1); renderInvItems(); });
+  recalcInvoice();
+}
+
+function recalcInvoice(){
+  const subtotal = invoiceItems.reduce((s,i)=&gt; s + (i.amount||0), 0);
+  $('#subtotal').textContent = '₹' + fmt(subtotal);
+  const taxId = $('#selTax').value;
+  let taxAmt = 0, taxPct = 0;
+  if(taxId !== 'none'){ const t = load(TAX_KEY,[]).find(x=&gt; x.id===taxId); if(t){ taxPct = Number(t.pct)||0; taxAmt = subtotal * taxPct / 100; } }
+  const discount = Number($('#billDiscount').value)||0;
+  const freeKg = Number($('#freeKg').value)||settings.freeKg||5;
+  const totalQty = invoiceItems.reduce((s,i)=&gt; s + (Number(i.qty)||0), 0);
+  const deliveryFee = totalQty &gt; freeKg ? (settings.deliveryFee||0) : 0;
+  $('#deliveryFee').textContent = '₹' + fmt(deliveryFee);
+  const grand = subtotal + taxAmt - discount + deliveryFee;
+  $('#grandtotal').textContent = '₹' + fmt(grand);
+}
+$('#selTax').addEventListener('change', recalcInvoice);
+$('#billDiscount').addEventListener('input', recalcInvoice);
+$('#freeKg').addEventListener('input', recalcInvoice);
+$('#clearBill').addEventListener('click', ()=&gt;{
+  if(!confirm('Clear current invoice?')) return;
+  invoiceItems=[]; $('#inv_no').value=''; $('#inv_date').value=''; $('#selCustomer').value=''; $('#custPhone').value=''; $('#custAddr').value='';
+  renderInvItems();
+});
+
+/* -------------------- Save invoice (decrement stock) -------------------- */
+function genInvNo(){ return 'KAB-' + new Date().toISOString().replace(/[-:T.Z]/g,'').slice(2,12); }
+
+$('#saveBill').addEventListener('click', ()=&gt;{
+  if(invoiceItems.length === 0) return alert('Add items first');
+  // stock verify
+  const products = load(PRODUCTS_KEY,[]);
+  for(const it of invoiceItems){
+    const p = products.find(x=&gt; x.id===it.id);
+    if(p &amp;&amp; p.stock !== undefined &amp;&amp; Number(it.qty) &gt; Number(p.stock)) return alert(`Insufficient stock for ${p.name} (available ${p.stock})`);
+  }
+  // build bill
+  const bills = load(BILLS_KEY,[]);
+  const billNo = $('#inv_no').value.trim() || genInvNo();
+  if(bills.some(b =&gt; b.billNo === billNo) &amp;&amp; !confirm('Invoice exists. Overwrite?')) return;
+  const custId = $('#selCustomer').value;
+  const cust = load(CUSTOMERS_KEY,[]).find(c=&gt; c.id===custId) || { name: $('#custPhone').value? 'Walk-in':'', phone: $('#custPhone').value||'', address: $('#custAddr').value||'' };
+  const subtotal = invoiceItems.reduce((s,i)=&gt; s + (i.amount||0), 0);
+  const taxId = $('#selTax').value; const taxPct = taxId==='none'?0: (load(TAX_KEY,[]).find(t=&gt; t.id===taxId)?.pct || 0);
+  const taxAmt = subtotal * taxPct / 100;
+  const discount = Number($('#billDiscount').value)||0;
+  const delivery = Number($('#deliveryFee').textContent.replace(/[^\d.]/g,''))||0;
+  const total = subtotal + taxAmt - discount + delivery;
+  const bill = { id:uid(), billNo, createdAt: new Date().toISOString(), customer: cust, items: invoiceItems, subtotal, taxPct, taxAmt, discount, delivery, total, logo: currentLogo };
+  // save
+  const newBills = bills.filter(b=&gt; b.billNo !== billNo); newBills.push(bill); save(BILLS_KEY, newBills);
+  // decrement stock
+  const prods = load(PRODUCTS_KEY,[]);
+  invoiceItems.forEach(it =&gt; {
+    const p = prods.find(x=&gt; x.id === it.id);
+    if(p &amp;&amp; p.stock !== undefined){ p.stock = Math.max(0, (Number(p.stock)||0) - (Number(it.qty)||0)); }
+  });
+  save(PRODUCTS_KEY, prods);
+  alert('Saved invoice');
+  invoiceItems = []; renderInvItems(); renderProducts(); renderBills(); renderDashboard();
+});
+
+/* -------------------- Bills / History -------------------- */
+function renderBills(filter=''){
+  const arr = load(BILLS_KEY,[]).sort((a,b)=&gt; new Date(b.createdAt) - new Date(a.createdAt));
+  $('#b_history').innerHTML = '';
+  arr.filter(b =&gt; {
+    if(!filter) return true;
+    const f = filter.toLowerCase();
+    return b.billNo.toLowerCase().includes(f) || (b.customer &amp;&amp; (b.customer.name||'').toLowerCase().includes(f)) || b.items.some(it =&gt; it.name.toLowerCase().includes(f));
+  }).forEach(b=&gt;{
+    const el = document.createElement('div');
+    el.style.cssText='padding:12px; border:1px solid #eef1f6; border-radius:10px; background:#fff; display:flex; justify-content:space-between; align-items:center; margin-bottom:8px';
+    el.innerHTML = `
+      &lt;div&gt;&lt;strong&gt;${esc(b.billNo)}&lt;/strong&gt;&lt;div class="small"&gt;${new Date(b.createdAt).toLocaleString()}&lt;/div&gt;&lt;/div&gt;
+      &lt;div&gt;₹${fmt(b.total)}
+        &lt;button data-id="${b.id}" class="btn-muted viewb" style="margin-left:8px"&gt;View&lt;/button&gt;
+        &lt;button data-id="${b.id}" class="btn-muted delb" style="margin-left:6px"&gt;Del&lt;/button&gt;
+      &lt;/div&gt;`;
+    $('#b_history').appendChild(el);
+  });
+  $$('.viewb').forEach(b=&gt; b.onclick = e =&gt; viewBill(e.target.dataset.id));
+  $$('.delb').forEach(b=&gt; b.onclick = e =&gt; { if(!confirm('Delete invoice?')) return; const id=e.target.dataset.id; const rem=load(BILLS_KEY,[]).filter(x=&gt; x.id!==id); save(BILLS_KEY, rem); renderBills(); renderDashboard(); });
+}
+$('#b_search').addEventListener('input', e=&gt; renderBills(e.target.value));
+
+function viewBill(id){
+  const b = load(BILLS_KEY,[]).find(x=&gt; x.id===id);
+  if(!b) return alert('Not found');
+  $('#inv_no').value = b.billNo; $('#inv_date').value = new Date(b.createdAt).toISOString().slice(0,16);
+  invoiceItems = JSON.parse(JSON.stringify(b.items)); renderInvItems();
+  if(b.customer){ $('#custPhone').value = b.customer.phone||''; $('#custAddr').value = b.customer.address||''; }
+  if(b.logo){ currentLogo = b.logo; localStorage.setItem(LOGO_KEY, currentLogo); applyLogoToWM(currentLogo); }
+  showView('billing');
+}
+
+/* -------------------- Dashboard &amp; Reports -------------------- */
+function renderDashboard(){
+  const bills = load(BILLS_KEY,[]);
+  $('#statCount').textContent = bills.length + ' bills';
+  const total = bills.reduce((s,b)=&gt; s + (b.total||0), 0);
+  $('#statSales').textContent = '₹' + fmt(total);
+  $('#recentList').innerHTML = bills.slice(0,6).map(b =&gt; `&lt;div&gt;${esc(b.billNo)} — ₹${fmt(b.total)} &lt;span class="small"&gt;(${new Date(b.createdAt).toLocaleDateString()})&lt;/span&gt;&lt;/div&gt;`).join('');
+  renderProducts(); renderCustomers();
+}
+function renderReports(){
+  const bills = load(BILLS_KEY,[]);
+  const today = new Date().toISOString().slice(0,10);
+  const daily = bills.filter(b =&gt; b.createdAt.slice(0,10) === today).reduce((s,b)=&gt; s + (b.total||0), 0);
+  const monthly = bills.filter(b=&gt; b.createdAt.slice(0,7) === new Date().toISOString().slice(0,7)).reduce((s,b)=&gt; s + (b.total||0), 0);
+  $('#repDaily').textContent = '₹' + fmt(daily);
+  $('#repMonthly').textContent = '₹' + fmt(monthly);
+  $('#repCount').textContent = bills.length;
+}
+
+/* -------------------- PDF A3 generation (luxury layout) -------------------- */
+async function downloadA3(){
+  applyLogoToWM(currentLogo);
+  await new Promise(r=&gt; setTimeout(r,180));
+  const el = document.getElementById('invoiceCard');
+  const canvas = await html2canvas(el, {scale:2, background:'#ffffff'});
+  const imgData = canvas.toDataURL('image/png');
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({orientation:'portrait', unit:'mm', format:'a3'});
+  const pageW = pdf.internal.pageSize.getWidth();
+  const margin = 10; const imgW = pageW - margin*2;
+  const imgH = (canvas.height * imgW) / canvas.width;
+  pdf.addImage(imgData, 'PNG', margin, margin, imgW, imgH);
+  const filename = `Invoice-${($('#inv_no').value||'invoice')}.pdf`.replace(/\s+/g,'_');
+  pdf.save(filename);
+}
+$('#downloadA3').addEventListener('click', downloadA3);
+$('#printBill').addEventListener('click', ()=&gt; window.print());
+
+/* -------------------- Export DB -------------------- */
+$('#exportAll').addEventListener('click', ()=&gt;{
+  const payload = {
+    products: load(PRODUCTS_KEY,[]),
+    customers: load(CUSTOMERS_KEY,[]),
+    bills: load(BILLS_KEY,[]),
+    taxes: load(TAX_KEY,[]),
+    settings
+  };
+  const blob = new Blob([JSON.stringify(payload,null,2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download='billing_export.json'; a.click();
+  URL.revokeObjectURL(url);
+});
+
+/* -------------------- Helpers -------------------- */
+function showView(id){ $$('.view').forEach(v=&gt; v.style.display='none'); document.getElementById(id).style.display='block'; }
+function refreshAll(){ renderProducts(); renderCustomers(); renderTaxes(); renderInvItems(); renderBills(); renderDashboard(); renderReports(); loadSettingsToUI(); applyLogoToWM(localStorage.getItem(LOGO_KEY)||''); }
+refreshAll();
+
+/* keyboard shortcut */
+document.addEventListener('keydown', e=&gt; {
+  if((e.ctrlKey||e.metaKey) &amp;&amp; e.key.toLowerCase()==='n'){
+    invoiceItems=[]; renderInvItems(); $('#inv_no').value = genInvNo(); showView('billing');
+  }
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</span></div></body>
+</html>
